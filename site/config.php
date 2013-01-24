@@ -92,7 +92,7 @@ $qu->config['theme'] = array(
     'menu_to_region' => array('my-navbar'=>'navbar'),
   // Add static entries for use in the template file. 
   'data' => array(
-    'header' => 'Lydia',
+    'header' => 'QuestMVC',
     'slogan' => 'A PHP-based MVC-inspired CMF',
     'favicon' => 'logo_80x80.png',
     'logo' => 'logo_80x80.png',
