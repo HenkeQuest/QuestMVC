@@ -189,23 +189,31 @@ function get_messages_from_session() {
  */
 function login_menu() {
   $qu = Questmvc::Instance();
-  if($qu->user['isAuthenticated']) {
-	$items = "<a href='" . create_url('user/profile') . "'><img class='gravatar' src='" . get_gravatar(20) . "' alt=''> " . $qu->user['acronym'] . "</a> ";
-    if($qu->user['hasRoleAdministrator']) {
-      $items .= "<a href='" . create_url('acp') . "'>acp</a> ";
+  if(isset($qu->config['menus']['login'])) {
+    if($qu->user->isAuthenticated()) {
+      $item = $qu->config['menus']['login']['ucp'];
+      $items = "<a href='" . create_url($item['url']) . "' title='{$item['title']}'><img class='gravatar' src='" . get_gravatar(20) . "' alt=''> " . $qu->user['acronym'] . "</a> ";
+      if($qu->user['hasRoleAdministrator']) {
+        $item = $qu->config['menus']['login']['acp'];
+        $items .= "<a href='" . create_url($item['url']) . "' title='{$item['title']}'>{$item['label']}</a> ";
+      }
+      $item = $qu->config['menus']['login']['logout'];
+      $items .= "<a href='" . create_url($item['url']) . "' title='{$item['title']}'>{$item['label']}</a> ";
+    } else {
+      $item = $qu->config['menus']['login']['login'];
+      $items = "<a href='" . create_url($item['url']) . "' title='{$item['title']}'>{$item['label']}</a> ";
     }
-    $items .= "<a href='" . create_url('user/logout') . "'>logout</a> ";
-  } else {
-    $items = "<a href='" . create_url('user/login') . "'>login</a> ";
+    return "<nav>$items</nav>";
   }
-  return "<nav>$items</nav>";
+  return null;
+
 }
 
 /**
  * Get a gravatar based on the user's email.
  */
 function get_gravatar($size=null) {
-  return 'http://www.gravatar.com/avatar/' . md5(strtolower(trim(Questmvc::Instance()->user['email']))) . '.jpg?r=pg&amp;d=wavatar&amp' . ($size ? "s=$size" : null);
+  return 'http://www.gravatar.com/avatar/' . md5(strtolower(trim(Questmvc::Instance()->user['email']))) . '.jpg?r=pg&amp;d=wavatar&amp;' . ($size ? "s=$size" : null);
 }
 
 /**

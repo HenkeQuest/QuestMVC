@@ -17,9 +17,13 @@ to be able to write and create files.</p>
 <code>cd questmvc; chmod 777 site/data</code>
 </blockquote>
 
-
 <p>Second, QuestMVC has some modules that need to be initialised. You can do this through a 
 controller. Point your browser to the following link.</p>
 <blockquote>
 <a href='<?=create_url('module/install')?>'>module/install</a>
 </blockquote>
+
+<ul>
+	<li>In /index.php you can define your installation path and site path</li>
+    <li>In /site/config.php you can set your personal settings.</li>
+</ul>

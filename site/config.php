@@ -38,6 +38,12 @@ $qu->config['language'] = 'en';
  * Create hardcoded menus and map them to a theme region through $ly->config['theme'].
  */
 $qu->config['menus'] = array(
+  'login' => array(
+    'login' => array('label'=>'login', 'url'=>'user/login', 'title'=>'Login'),
+    'logout' => array('label'=>'logout', 'url'=>'user/logout', 'title'=>'Logout'),
+    'ucp' => array('label'=>'ucp', 'url'=>'user', 'title'=>'User control panel'),
+    'acp' => array('label'=>'acp', 'url'=>'acp', 'title'=>'Admin control panel'),
+  ),
   'navbar' => array(
     'home'      => array('label'=>'Home', 'url'=>'home'),
     'modules'   => array('label'=>'Modules', 'url'=>'module'),
@@ -98,7 +104,7 @@ $qu->config['theme'] = array(
     'logo' => 'logo_80x80.png',
     'logo_width'  => 80,
     'logo_height' => 80,
-    'footer' => '<p>Lydia &copy; by Mikael Roos (mos@dbwebb.se)</p>',
+    'footer' => '<p>QuestMVC by Henrik Wiklander (h_wiklander@hotmail.com)</p>',
   ),
 );
 

@@ -20,7 +20,12 @@ class MUser extends Object implements IHasSQL, ArrayAccess, IModule {
     parent::__construct($qu);
     $profile = $this->session->GetAuthenticatedUser();
     $this->profile = is_null($profile) ? array() : $profile;
-    $this['isAuthenticated'] = is_null($profile) ? false : true;	
+    $this['isAuthenticated'] = is_null($profile) ? false : true;
+    if(!$this['isAuthenticated']) {
+      $this['id'] = 1;
+      $this['acronym'] = 'anonomous';      
+      $this['hasRoleAnonomous'] = true;
+    }
   }
 
   /**
@@ -266,42 +271,23 @@ class MUser extends Object implements IHasSQL, ArrayAccess, IModule {
     }
     return true;
   }
-//  /**
-//   * Does the session contain an authenticated user?
-//   *
-//   * @returns boolen true or false.
-//   */
-//  public function IsAuthenticated() {
-//    return ($this->session->GetAuthenticatedUser() != false);
-//  }
-//  
-//  
-//  /**
-//   * Get profile information on user.
-//   *
-//   * @returns array with user profile or null if anonymous user.
-//   */
-//  public function GetProfile() {
-//    return $this->session->GetAuthenticatedUser();
-//  }
-//  
-//  /**
-//   * Get the user acronym.
-//   *
-//   * @returns string with user acronym or null
-//   */
-//  public function GetAcronym() {
-//    $profile = $this->GetProfile();
-//    return isset($profile['acronym']) ? $profile['acronym'] : null;
-//  }
-//
-//  /**
-//   * Does the user have the admin role?
-//   *
-//   * @returns boolen true or false.
-//   */
-//  public function IsAdministrator() {
-//    $profile = $this->GetProfile();
-//    return isset($profile['hasRoleAdmin']) ? $profile['hasRoleAdmin'] : null;
-//  }    
+
+  /**
+   * Check if user has admin role.
+   *
+   * @returns boolean true or false.
+   */
+  public function IsAdmin() {
+    return $this['hasRoleAdmin'];
+  }
+
+  /**
+   * Check if user is authenticated.
+   *
+   * @returns boolean true or false.
+   */
+  public function IsAuthenticated() {
+    return $this['isAuthenticated'];
+  }
+
 }
