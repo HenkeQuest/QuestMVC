@@ -53,8 +53,8 @@ $qu->config['menus'] = array(
   ),
   'my-navbar' => array(
     'home'      => array('label'=>'About Me', 'url'=>'my'),
-    'blog'      => array('label'=>'My Blog', 'url'=>'my/blog'),
-    'guestbook' => array('label'=>'Guestbook', 'url'=>'my/guestbook'),
+    //'blog'      => array('label'=>'My Blog', 'url'=>'my/blog'),
+    //'guestbook' => array('label'=>'Guestbook', 'url'=>'my/guestbook'),
   ),
 );
 
@@ -95,7 +95,7 @@ $qu->config['theme'] = array(
     'footer-column-one','footer-column-two','footer-column-three','footer-column-four',
     'footer',
   ),
-    'menu_to_region' => array('my-navbar'=>'navbar'),
+  'menu_to_region' => array('my-navbar'=>'navbar'),
   // Add static entries for use in the template file. 
   'data' => array(
     'header' => 'QuestMVC',

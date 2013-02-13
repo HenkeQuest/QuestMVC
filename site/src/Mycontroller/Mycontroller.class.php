@@ -55,7 +55,6 @@ class Mycontroller extends Object implements IController {
          ));
   }
   
-
 } 
 
 
