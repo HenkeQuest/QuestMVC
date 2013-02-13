@@ -63,7 +63,7 @@ Then you need to create a method in `site/src/Mycontroller/Mycontroller.class.ph
  * My parents page.
  */
 public function Parents() {
-  $content = new MContent(9);
+  $content = new MContent(9); // 9 is the id of the page that i received earlier.
   $this->views->AddInclude(__DIR__ . '/page.tpl.php', array(
                 'content' => $content,
               ));
