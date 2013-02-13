@@ -17,7 +17,7 @@ First you have to make the data-directory writable. This is the place where Lydi
 
 cd questmvc; chmod 777 site/data 
 
-Second, QuestMVC has some modules that need to be initialised. You can do this through a controller. Point your browser to the following link.
+Second, QuestMVC has some modules that need to be initialized. You can do this through a controller. Point your browser to the following link.
 
 
 ##module/install 
@@ -41,9 +41,10 @@ Here you can:
 * Set regions
 * Set header, slogan, favicon, logo (height and weight) and footer
 
-Youre menu can be change in `$qu->config['menus']` under `"my-navbar"`.
-You can modifye the label or you can add a nav-bar item. If you want to add 
-a new page of your parents you can add the folowing line in my-navbar:
+You're menu can be change in `$qu->config['menus']` under `"my-navbar"`.
+You can modify the label or you can add a nav-bar item. If you want to add 
+a new page of your parents you can add the following line in my-navbar:
+
 `'parents'   => array('label'=>'My Parents', 'url'=>'my/parents'),`
 
 Go to your site and log in as admin. Standard is root/root
@@ -53,9 +54,10 @@ Go to `/content/create` and create a page:
 * Content: I have 2 parents.
 * Type: page
 * Filter: htmlpurify
-After you clicked on "Create" you reseved a ID to this page. It is shown in the adress field. Put that number in minde.
 
-Then you nede to create a method in `site/src/Mycontroller/Mycontroller.class.php` like this:
+After you clicked "Create" you received a ID to this page. It is shown in the address field. Put that number in mind.
+
+Then you need to create a method in `site/src/Mycontroller/Mycontroller.class.php` like this:
 ```
 /**
  * My parents page.
@@ -67,9 +69,9 @@ public function Parents() {
               ));
 }
 ```
-Now you have a page for your parants.
+Now you have a page for your parents.
 
-If you want a blog you only have to uncommet the "blog" line in my-navbar in site/config.php
+If you want a blog you only have to uncomment the "blog" line in my-navbar in site/config.php
 Do you want to add a post in your blog just go to `/content/create` and create a post:
 * Title: Your title
 * Key: your-key
