@@ -71,7 +71,7 @@ public function Parents() {
 ```
 Now you have a page for your parents.
 
-If you want a blog you only have to uncomment the "blog" line in my-navbar in site/config.php
+If you want a blog you only have to uncomment the "blog" line in `my-navbar` in `site/config.php`
 Do you want to add a post in your blog just go to `/content/create` and create a post:
 * Title: Your title
 * Key: your-key
@@ -80,3 +80,5 @@ Do you want to add a post in your blog just go to `/content/create` and create a
 * Filter: htmlpurify
 
 You now have a new post in your blog
+
+If you want a guestbook you can only uncomment the "guestbook" line in `my-navbar` in `site/config.php`
