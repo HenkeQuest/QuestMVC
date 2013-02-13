@@ -76,4 +76,5 @@ Do you want to add a post in your blog just go to `/content/create` and create a
 * Content: Content of your blog
 * Type: post
 * Filter: htmlpurify
+
 You now have a new post in your blog
